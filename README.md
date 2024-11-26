@@ -28,11 +28,39 @@ Start by [downloading and unzipping the code](https://github.com/jeroen94704/kle
 
 `git clone https://github.com/jeroen94704/klepcbgen`
 
-Then install the required dependencies, using the following command:
+Create a virtual environment:
 
-`pip install -r requirements.txt`
+```shell
+pip -m venv venv
+```
 
-(Note: On Windows, make sure to execute this command in a shell with admin rights)
+Activate the virtual environment:
+
+For POSIX systems
+
+```shell
+source venv/bin/activate
+```
+
+Or Windows systems,
+
+```powershell
+.\venv\scripts\activate
+```
+
+Then install the required dependencies:
+
+Install the package
+
+```shell
+pip install .
+```
+
+Alternatively, apply the requirements.txt file
+
+```powershell
+pip install -r requirements.txt
+```
 
 ## Usage
 

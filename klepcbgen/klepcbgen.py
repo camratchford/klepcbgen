@@ -1,17 +1,18 @@
 import argparse
 
-from  klepcbgenmod import KLEPCBGenerator
+from klepcbgen.klepcbgenmod import KLEPCBGenerator
 
 PROGRAM_VERSION = "2.0"
+
 
 def parse_command_line_arguments():
     """ Parse the command line and check that the correct number of arguments is given """
     parser = argparse.ArgumentParser(
         prog="klepcbgen",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
-        description="Utility to generate a KiCad schematic and layout of the switch matrix of \
-a keyboard designed using the Keyboard Layout Editor \
-(http://www.keyboard-layout-editor.com/)",
+        description="Utility to generate a KiCad schematic and layout of the switch matrix of "
+                    "a keyboard designed using the Keyboard Layout Editor "
+                    "(http://www.keyboard-layout-editor.com/)",
     )
     parser.add_argument(
         "-v", "--version", action="version", version="%(prog)s " + PROGRAM_VERSION
@@ -28,8 +29,8 @@ a keyboard designed using the Keyboard Layout Editor \
 
     parser.add_argument(
         "-o", dest="outname", required=True,
-        help='The directory and base name for the output files (e.g. "id80" will result in "id80.sch" and \
-                "id80.pcb" located in the "id80" subdirectory',
+        help='The directory and base name for the output files (e.g. "id80" will result in "id80.sch" and '
+             '"id80.pcb" located in the "id80" subdirectory',
     )
 
     parser.add_argument(
@@ -46,9 +47,14 @@ a keyboard designed using the Keyboard Layout Editor \
 
     return args
 
-# Program entry
-if __name__ == "__main__":
+
+def main():
     arguments = parse_command_line_arguments()
     kbpcbgen = KLEPCBGenerator()
     kbpcbgen.generate_kicadproject(arguments.infile, arguments.outname, arguments.routing, arguments.colgroup)
     kbpcbgen.keyboard.print_key_info()
+
+
+# Program entry
+if __name__ == "__main__":
+    main()

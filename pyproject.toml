@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["klepcbgen"]
+
+[project]
+name = 'klepcdgen'
+description = 'Generates a KiCAD schematic and PCB layout using a Keyboard Layout Editor json file as input'
+authors = [
+    {name = 'Jeroen Bouwens'},
+]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Environment :: Console",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Software Development",
+]
+version = "2.0.0"
+requires-python = '>=3.8'
+dependencies = [
+    "jinja2",
+    "MarkupSafe",
+]
+
+[project.urls]
+Homepage = 'https://github.com/jeroen94704/klepcbgen'
+Source = 'https://github.com/jeroen94704/klepcbgen'
+
+[project.scripts]
+pcbgen = "klepcbgen:main"
